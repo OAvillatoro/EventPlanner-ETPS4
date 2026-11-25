@@ -1,3 +1,4 @@
+
 //
 //  ContentView.swift
 //  EventPlanner
@@ -15,26 +16,10 @@ struct ContentView: View {
             if authViewModel.isCheckingSession {
                 ProgressView("Verificando sesión...")
 
-            } else if let user = authViewModel.user {
-                VStack(spacing: 20) {
-                    Image(systemName: "checkmark.circle.fill")
-                        .font(.system(size: 60))
-                        .foregroundColor(.green)
-
-                    Text("Bienvenido a EventPlanner")
-                        .font(.title)
-                        .bold()
-                        .multilineTextAlignment(.center)
-
-                    Text(user.email ?? "")
-                        .foregroundColor(.secondary)
-
-                    Button("Cerrar sesión") {
-                        authViewModel.signOut()
-                    }
-                    .buttonStyle(.borderedProminent)
-                }
-                .padding()
+            } else if authViewModel.user != nil {
+                EventsFeedView(
+                    authViewModel: authViewModel
+                )
 
             } else if authViewModel.needsProfile {
                 CompleteProfileView(viewModel: authViewModel)
@@ -126,4 +111,3 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
-

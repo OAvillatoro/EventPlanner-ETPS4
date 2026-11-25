@@ -17,6 +17,13 @@
 		557CEF1E30B67CE200CA440A /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557CEF1D30B67CE200CA440A /* AuthViewModel.swift */; };
 		557CEF2030B67DE800CA440A /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557CEF1F30B67DE800CA440A /* AuthView.swift */; };
 		557CEF2230B6810400CA440A /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557CEF2130B6810400CA440A /* RegisterView.swift */; };
+		557CEF2430B68B6F00CA440A /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557CEF2330B68B6F00CA440A /* Event.swift */; };
+		557CEF2630B68BA700CA440A /* EventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557CEF2530B68BA700CA440A /* EventsViewModel.swift */; };
+		557CEF2830B68BF600CA440A /* EventsFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557CEF2730B68BF600CA440A /* EventsFeedView.swift */; };
+		557CEF2A30B68CD500CA440A /* EventFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557CEF2930B68CD500CA440A /* EventFormView.swift */; };
+		557CEF2C30B68E7B00CA440A /* EventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557CEF2B30B68E7B00CA440A /* EventDetailView.swift */; };
+		557CEF2E30B690EB00CA440A /* MyEventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557CEF2D30B690EB00CA440A /* MyEventsView.swift */; };
+		557CEF3030B694F200CA440A /* AttendeesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557CEF2F30B694F200CA440A /* AttendeesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +36,13 @@
 		557CEF1D30B67CE200CA440A /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		557CEF1F30B67DE800CA440A /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		557CEF2130B6810400CA440A /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		557CEF2330B68B6F00CA440A /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		557CEF2530B68BA700CA440A /* EventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewModel.swift; sourceTree = "<group>"; };
+		557CEF2730B68BF600CA440A /* EventsFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsFeedView.swift; sourceTree = "<group>"; };
+		557CEF2930B68CD500CA440A /* EventFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventFormView.swift; sourceTree = "<group>"; };
+		557CEF2B30B68E7B00CA440A /* EventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailView.swift; sourceTree = "<group>"; };
+		557CEF2D30B690EB00CA440A /* MyEventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEventsView.swift; sourceTree = "<group>"; };
+		557CEF2F30B694F200CA440A /* AttendeesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendeesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,8 +83,15 @@
 				557CEF0C30B671BB00CA440A /* Assets.xcassets */,
 				557CEF0E30B671BB00CA440A /* Preview Content */,
 				557CEF1D30B67CE200CA440A /* AuthViewModel.swift */,
+				557CEF2730B68BF600CA440A /* EventsFeedView.swift */,
 				557CEF1F30B67DE800CA440A /* AuthView.swift */,
 				557CEF2130B6810400CA440A /* RegisterView.swift */,
+				557CEF2330B68B6F00CA440A /* Event.swift */,
+				557CEF2530B68BA700CA440A /* EventsViewModel.swift */,
+				557CEF2930B68CD500CA440A /* EventFormView.swift */,
+				557CEF2B30B68E7B00CA440A /* EventDetailView.swift */,
+				557CEF2D30B690EB00CA440A /* MyEventsView.swift */,
+				557CEF2F30B694F200CA440A /* AttendeesView.swift */,
 			);
 			path = EventPlanner;
 			sourceTree = "<group>";
@@ -164,7 +185,14 @@
 				557CEF0B30B671B600CA440A /* ContentView.swift in Sources */,
 				557CEF2230B6810400CA440A /* RegisterView.swift in Sources */,
 				557CEF0930B671B600CA440A /* EventPlannerApp.swift in Sources */,
+				557CEF2830B68BF600CA440A /* EventsFeedView.swift in Sources */,
 				557CEF2030B67DE800CA440A /* AuthView.swift in Sources */,
+				557CEF2630B68BA700CA440A /* EventsViewModel.swift in Sources */,
+				557CEF3030B694F200CA440A /* AttendeesView.swift in Sources */,
+				557CEF2E30B690EB00CA440A /* MyEventsView.swift in Sources */,
+				557CEF2C30B68E7B00CA440A /* EventDetailView.swift in Sources */,
+				557CEF2A30B68CD500CA440A /* EventFormView.swift in Sources */,
+				557CEF2430B68B6F00CA440A /* Event.swift in Sources */,
 				557CEF1E30B67CE200CA440A /* AuthViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

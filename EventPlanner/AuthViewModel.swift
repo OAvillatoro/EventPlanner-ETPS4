@@ -11,6 +11,8 @@ import FirebaseFirestore
 
 class AuthViewModel: ObservableObject {
     @Published var user: User?
+    @Published var profileName = ""
+    @Published var profileOrganization = ""
     @Published var isLoading = false
     @Published var isCheckingSession = true
     @Published var needsProfile = false
@@ -26,6 +28,8 @@ class AuthViewModel: ObservableObject {
 
                 guard let firebaseUser = firebaseUser else {
                     self.user = nil
+                    self.profileName = ""
+                    self.profileOrganization = ""
                     self.needsProfile = false
                     self.isCheckingSession = false
                     return
@@ -64,17 +68,44 @@ class AuthViewModel: ObservableObject {
                     self.isCheckingSession = false
 
                     if let error = error {
+                        self.user = nil
                         self.errorMessage = "Error al consultar el perfil: \(error.localizedDescription)"
                         return
                     }
 
-                    if document?.exists == true {
+                    if let data = document?.data() {
+                        let name = data["name"] as? String ?? ""
+
+                        self.profileName = name
+                        self.profileOrganization = data["organization"] as? String ?? ""
                         self.user = firebaseUser
                         self.needsProfile = false
+
+                        self.publishAttendeeName(
+                            userId: firebaseUser.uid,
+                            name: name
+                        )
                     } else {
                         self.user = nil
+                        self.profileName = ""
+                        self.profileOrganization = ""
                         self.needsProfile = true
                     }
+                }
+            }
+    }
+
+    // MARK: - Publicar nombre visible
+
+    private func publishAttendeeName(userId: String, name: String) {
+        guard !name.isEmpty else { return }
+
+        Firestore.firestore()
+            .collection("attendeeProfiles")
+            .document(userId)
+            .setData(["name": name]) { error in
+                if let error = error {
+                    print("Error al publicar nombre del asistente: \(error.localizedDescription)")
                 }
             }
     }
@@ -145,9 +176,16 @@ class AuthViewModel: ObservableObject {
                             self.needsProfile = true
                             self.errorMessage = "No se pudo guardar el perfil: \(error.localizedDescription)"
                         } else {
+                            self.profileName = name
+                            self.profileOrganization = organization
                             self.needsProfile = false
                             self.errorMessage = nil
                             self.user = firebaseUser
+
+                            self.publishAttendeeName(
+                                userId: firebaseUser.uid,
+                                name: name
+                            )
                         }
                     }
                 }
@@ -183,9 +221,16 @@ class AuthViewModel: ObservableObject {
                     if let error = error {
                         self.errorMessage = "No se pudo completar el perfil: \(error.localizedDescription)"
                     } else {
+                        self.profileName = name
+                        self.profileOrganization = organization
                         self.needsProfile = false
                         self.errorMessage = nil
                         self.user = firebaseUser
+
+                        self.publishAttendeeName(
+                            userId: firebaseUser.uid,
+                            name: name
+                        )
                     }
                 }
             }
@@ -197,6 +242,8 @@ class AuthViewModel: ObservableObject {
         do {
             try Auth.auth().signOut()
             user = nil
+            profileName = ""
+            profileOrganization = ""
             needsProfile = false
             errorMessage = nil
         } catch {
